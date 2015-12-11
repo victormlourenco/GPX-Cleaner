@@ -3,6 +3,7 @@ package gpx;
 import java.util.List;
 import com.fmt.gps.track.TrackPoint;
 
+import Ferramentas.Haversine;
 import Ferramentas.Serializer;
 
 public class Main {
@@ -10,10 +11,10 @@ public class Main {
 	public static void main(String[] args) {
 		
 		if(args.length != 3) {
-			System.err.println("Par‚metros inv·lidos.");
+			System.err.println("Par√¢metros inv√°lidos.");
 		}
 		
-		List<TrackPoint> pontos = Serializer.SerializePoints(args[1]);
+		gpx.TrackPoint[] pontos = Serializer.SerializePoints(args[2]);
 		
 		if (args[0].endsWith("%")) {
 			int percentual = Integer.parseInt(args[0].substring(0, args[0].length()-1));
@@ -21,7 +22,8 @@ public class Main {
 		} else {
 			double distancia = Double.parseDouble(args[0]);
 			//ReduzDistancia(distancia, args[2], pontos)
-		}		
+		}
+		
 	}
 
 }

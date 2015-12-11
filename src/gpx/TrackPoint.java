@@ -16,6 +16,14 @@ public class TrackPoint {
 		Frame = Serializer.GetTrack(Latitude, Longitude, Time);
 	}
 	
+	public TrackPoint() {
+		super();
+		Latitude = 0;
+		Longitude = 0;
+		Time = null;
+		Frame = null;
+	}
+	
 	public double getLatitude() {
 		return Latitude;
 	}

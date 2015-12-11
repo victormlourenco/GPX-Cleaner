@@ -3,6 +3,7 @@ package Ferramentas;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fmt.gps.data.GpxFileDataAccess;
@@ -12,12 +13,21 @@ public class Serializer {
 
 	public static final String SerializePoints = null;
 
-	public static List<TrackPoint> SerializePoints(String filename) {
-		return GpxFileDataAccess.getPoints(new File(filename));
+	public static gpx.TrackPoint[] SerializePoints(String filename) {
+		Object[] points = (GpxFileDataAccess.getPoints(new File(filename))).toArray();
+		gpx.TrackPoint[] Points = new gpx.TrackPoint[points.length];
+		for (int i = 0; i < points.length; i++) {
+			Points[i] = new gpx.TrackPoint(points[i]);
+		}
+		return Points;
 	}
 
-	public static void WritePoints(String filename, List<TrackPoint> points) {
-		final Trip trip = Trip.makeTrip(-1, new TrackSegment(points, TrackSegment.caminarType.walk));
+	public static void WritePoints(String filename, gpx.TrackPoint[] points) {
+		List PointList = new ArrayList();
+		for (int i = 0; i < points.length; i++) {
+			PointList.add(points[i].getFrame());	
+		}
+		final Trip trip = Trip.makeTrip(-1, new TrackSegment(PointList, TrackSegment.caminarType.walk));
 		PrintWriter out = null;
 		try {
 			out = new PrintWriter(filename);

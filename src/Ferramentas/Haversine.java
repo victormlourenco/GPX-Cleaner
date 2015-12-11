@@ -1,7 +1,15 @@
 package Ferramentas;
 
+import gpx.TrackPoint;
+
 public class Haversine {
-	public static Double calcularDistancia(Double latitudeOne, Double longitudeOne, Double latitudeTwo, Double longitudeTwo) {
+	public static Double calcularDistancia(TrackPoint Point1, TrackPoint Point2) {
+		
+		Double latitudeOne = Point1.getLatitude();
+		Double longitudeOne = Point1.getLongitude(); 
+		Double latitudeTwo = Point2.getLatitude(); 
+		Double longitudeTwo = Point2.getLongitude();
+		
         if (latitudeOne == null || latitudeTwo == null || longitudeOne == null || longitudeTwo == null) {
             return null;
         }
