@@ -3,6 +3,8 @@ package gpx;
 import java.util.List;
 import com.fmt.gps.track.TrackPoint;
 
+import Ferramentas.Serializer;
+
 public class Main {
 	
 	public static void main(String[] args) {
