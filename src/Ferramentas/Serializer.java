@@ -22,7 +22,7 @@ public class Serializer {
 		try {
 			out = new PrintWriter(filename);
 		} catch (FileNotFoundException e1) {
-			System.out.print("Erro: Não foi possível gravar o arquivo.");
+			System.out.print("Erro: Nï¿½o foi possï¿½vel gravar o arquivo.");
 		}
 		out.print(GpxFileDataAccess.makeGpxXml(trip, false));
 	}
@@ -41,8 +41,7 @@ public class Serializer {
 	
 	public static Object GetTrack(double lat, double lon, String time) {
 		String out = "";
-		out = out.concat("lat: " + lat + " lon: " + lon + " time: "+ time).replace('.', ',');
-		return out;
+		return out.concat("lat: " + lat + " lon: " + lon + " time: "+ time).replace('.', ',');
 	}
 	
 	
