@@ -1,58 +1,57 @@
 package gpx;
 
-import ferramentas.Serializer;
+import ferramentas.Serializador;
 
 public class Ponto {
-	private double Latitude;
-	private double Longitude;
-	private Object Frame;
-	private double Distancia;
-	
-	//Constrói um objeto do tipo Ponto através de um objeto do tipo frame
+	private double latitude;
+	private double longitude;
+	private Object frame;
+	private double distancia;
+
+	// Constrói um objeto do tipo Ponto através de um objeto do tipo frame
 	public Ponto(Object frame) {
 		super();
-		Latitude = Serializer.GetLat(frame);
-		Longitude = Serializer.GetLong(frame);
-		Frame = frame;
+		this.latitude = Serializador.getLat(frame);
+		this.longitude = Serializador.getLong(frame);
+		this.frame = frame;
 	}
-	
-	//Construtor default
+
+	// Construtor default
 	public Ponto() {
 		super();
-		Latitude = 0;
-		Longitude = 0;
-		Frame = null;
-		Distancia = Double.MAX_VALUE;
+		this.latitude = 0;
+		this.longitude = 0;
+		this.frame = null;
+		this.distancia = Double.MAX_VALUE;
 	}
-	
-	//Constrói um a partir de um y,x
+
+	// Constrói um a partir de um y,x
 	public Ponto(double latitude, double longitude) {
 		super();
-		Latitude = latitude;
-		Longitude = longitude;
-		Frame = null;
-		Distancia = Double.MAX_VALUE;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.frame = null;
+		this.distancia = Double.MAX_VALUE;
 	}
-	
+
 	public double getLatitude() {
-		return Latitude;
+		return latitude;
 	}
-	
+
 	public double getLongitude() {
-		return Longitude;
+		return longitude;
 	}
 
 	public Object getFrame() {
-		return Frame;
+		return frame;
 	}
-	
+
 	public double getDistancia() {
-		return Distancia;
+		return distancia;
 	}
 
 	public void setDistancia(double distancia) {
-		Distancia = distancia;
+		this.distancia = distancia;
 	}
-	
-	
+
 }

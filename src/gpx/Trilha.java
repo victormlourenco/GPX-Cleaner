@@ -1,14 +1,14 @@
 package gpx;
 
 public class Trilha {
-	
+
 	public static void main(String[] args) {
 		if (args.length != 3) {
 			System.err.println("Parâmetros inválidos");
 			System.exit(0);
 		}
 		Segmento trilha = new Segmento(args[1]);
-		trilha.RemovePontos(args[0], args[2]);
+		trilha.RemoverPontos(args[0], args[2]);
 	}
-	
+
 }
