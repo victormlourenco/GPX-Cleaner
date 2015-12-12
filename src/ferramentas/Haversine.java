@@ -1,4 +1,4 @@
-package Ferramentas;
+package ferramentas;
 
 public class Haversine {
     public static final double R = 6372.8; // In kilometers
