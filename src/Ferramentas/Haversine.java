@@ -1,27 +1,15 @@
 package Ferramentas;
 
-import gpx.TrackPoint;
-
 public class Haversine {
-	public static Double calcularDistancia(TrackPoint Point1, TrackPoint Point2) {
-		
-		Double latitudeOne = Point1.getLatitude();
-		Double longitudeOne = Point1.getLongitude(); 
-		Double latitudeTwo = Point2.getLatitude(); 
-		Double longitudeTwo = Point2.getLongitude();
-		
-        if (latitudeOne == null || latitudeTwo == null || longitudeOne == null || longitudeTwo == null) {
-            return null;
-        }
-
-        Double earthRadius = 6371.0;
-        Double diffBetweenLatitudeRadians = Math.toRadians(latitudeTwo - latitudeOne);
-        Double diffBetweenLongitudeRadians = Math.toRadians(longitudeTwo - longitudeOne);
-        Double latitudeOneInRadians = Math.toRadians(latitudeOne);
-        Double latitudeTwoInRadians = Math.toRadians(latitudeTwo);
-        Double a = Math.sin(diffBetweenLatitudeRadians / 2) * Math.sin(diffBetweenLatitudeRadians / 2) + Math.cos(latitudeOneInRadians) * Math.cos(latitudeTwoInRadians) * Math.sin(diffBetweenLongitudeRadians / 2)
-                * Math.sin(diffBetweenLongitudeRadians / 2);
-        Double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        return (earthRadius * c);
+    public static final double R = 6372.8; // In kilometers
+    public static double haversine(double lat1, double lon1, double lat2, double lon2) {
+        double dLat = Math.toRadians(lat2 - lat1);
+        double dLon = Math.toRadians(lon2 - lon1);
+        lat1 = Math.toRadians(lat1);
+        lat2 = Math.toRadians(lat2);
+ 
+        double a = Math.pow(Math.sin(dLat / 2),2) + Math.pow(Math.sin(dLon / 2),2) * Math.cos(lat1) * Math.cos(lat2);
+        double c = 2 * Math.asin(Math.sqrt(a));
+        return R * c;
     }
 }
