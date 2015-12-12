@@ -2,10 +2,11 @@ package gpx;
 
 import java.util.List;
 
-import ferramentas.*;
+import ferramentas.Haversine;
+import ferramentas.Serializador;
 
 public class Segmento {
-	
+
 	private static List<Ponto> pontos;
 
 	// Recebe um array de objetos do tipo Ponto do Serializador
@@ -78,5 +79,5 @@ public class Segmento {
 		pontoB.setDistancia(Haversine.haversine(PontoD.getLatitude(), PontoD.getLongitude(), pontoB.getLatitude(),
 				pontoB.getLongitude()));
 	}
-	
+
 }

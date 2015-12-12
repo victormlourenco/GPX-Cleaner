@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fmt.gps.data.GpxFileDataAccess;
-import com.fmt.gps.track.*;
+import com.fmt.gps.track.TrackPoint;
+import com.fmt.gps.track.TrackSegment;
+import com.fmt.gps.track.Trip;
 
 import gpx.Ponto;
 

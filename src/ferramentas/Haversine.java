@@ -11,4 +11,5 @@ public class Haversine {
 		double c = 2 * Math.asin(Math.sqrt(a));
 		return R * c;
 	}
+
 }
