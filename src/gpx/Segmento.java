@@ -16,54 +16,58 @@ public class Segmento {
 
 	// Remove pontos de uma array de Objetos do tipo Ponto e salva com um nome
 	// passado como parâmetro.
-	public void RemoverPontos(String quantidade, String saida) {
+	public void removerPontos(String quantidade, String saida) {
 		if (quantidade.endsWith("%")) {
-			ReduzirPercentual(quantidade);
+			reduzirPercentual(Integer.parseInt(quantidade.replace("%", "")));
 		} else {
-			ReduzirDistancia(quantidade);
+			reduzirDistancias(Double.parseDouble(quantidade));
 		}
 		Serializador.escreverPontos(saida, pontos);
 	}
 
 	// Método responsável por remover Pontos através de um percentual.
-	private void ReduzirPercentual(String percentual) {
-		int value = Integer.parseInt(percentual.replace("%", ""));
+	private void reduzirPercentual(int value) {
 		value = (value * pontos.size()) / 100;
-		for (int i = 1; i < pontos.size() - 1; i++) {
-			CalcularDistancia(pontos.get(i - 1), pontos.get(i), pontos.get(i + 1));
-		}
 		for (int i = 0; i < value; i++) {
-			pontos.remove(CalcularMenorDistancia());
+			recalcularDistancias();
+			pontos.remove(calcularMenorDistancia());
 		}
 	}
 
-	// Método responsável por remover Pontos através de uma distância d dada
-	private void ReduzirDistancia(String distancia) {
-		double value = Double.parseDouble(distancia);
-		value = (value * pontos.size()) / 100;
+	// Retorna a posição do Ponto que possui a menor distância
+	private int calcularMenorDistancia() {
+		double menor = pontos.get(0).getDistancia();
+		int posicaomenor = 0;
 		for (int i = 1; i < pontos.size() - 1; i++) {
-			CalcularDistancia(pontos.get(i - 1), pontos.get(i), pontos.get(i + 1));
-			if (pontos.get(i).getDistancia() <= value / 100) {
+			if (pontos.get(i).getDistancia() < menor) {
+				posicaomenor = i;
+				menor = pontos.get(i).getDistancia();
+			}
+		}
+		return posicaomenor;
+	}
+
+	// Reduz pontos com distancias menores a uma distancia passada como
+	// parâmetro
+	private void reduzirDistancias(double distancia) {
+		for (int i = 1; i < pontos.size() - 1; i++) {
+			if (pontos.get(i).getDistancia() <= distancia) {
+				recalcularDistancias();
+				// System.out.println(pontos.get(i).getDistancia());
 				pontos.remove(i);
 			}
 		}
 	}
 
-	// Retorna a posição do Ponto que possui a menor distância
-	private int CalcularMenorDistancia() {
-		double smallest = pontos.get(0).getDistancia();
-		int indexmenor = 0;
+	// Recalcula as distancias
+	private void recalcularDistancias() {
 		for (int i = 1; i < pontos.size() - 1; i++) {
-			if (pontos.get(i).getDistancia() < smallest) {
-				indexmenor = i;
-				smallest = pontos.get(i).getDistancia();
-			}
+			calcularDistancia(pontos.get(i - 1), pontos.get(i), pontos.get(i + 1));
 		}
-		return indexmenor;
 	}
 
 	// Calcula a distância d entre pontos
-	private void CalcularDistancia(Ponto pontoA, Ponto pontoB, Ponto pontoC) {
+	private void calcularDistancia(Ponto pontoA, Ponto pontoB, Ponto pontoC) {
 		double x1 = pontoA.getLongitude();
 		double y1 = pontoA.getLatitude();
 		double x2 = pontoB.getLongitude();
