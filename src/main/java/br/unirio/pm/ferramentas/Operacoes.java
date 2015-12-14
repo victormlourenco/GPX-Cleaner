@@ -1,6 +1,6 @@
-package ferramentas;
+package br.unirio.pm.ferramentas;
 
-import gpx.Ponto;
+import br.unirio.pm.gpx.Ponto;
 
 public class Operacoes {
 	public static final double R = 6372.8; // In kilometers

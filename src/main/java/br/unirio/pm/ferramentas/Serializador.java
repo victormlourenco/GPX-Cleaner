@@ -1,4 +1,4 @@
-package ferramentas;
+package br.unirio.pm.ferramentas;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,7 +12,7 @@ import com.fmt.gps.track.TrackPoint;
 import com.fmt.gps.track.TrackSegment;
 import com.fmt.gps.track.Trip;
 
-import gpx.Ponto;
+import br.unirio.pm.gpx.Ponto;
 
 public class Serializador {
 
