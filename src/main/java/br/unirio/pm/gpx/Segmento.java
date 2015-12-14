@@ -7,7 +7,7 @@ import br.unirio.pm.ferramentas.Serializador;
 
 public class Segmento {
 
-	private static List<Ponto> pontos;
+	private List<Ponto> pontos;
 
 	// Recebe um array de objetos do tipo Ponto do Serializador
 	public Segmento(String ArquivoDeEntrada) {
@@ -51,10 +51,10 @@ public class Segmento {
 	// par�metro
 	public void reduzDistancias(double distancia) {
 		for (int i = 1; i < pontos.size() - 1; i++) {
-			if (Operacoes.calculaHaversine(pontos.get(i), pontos.get(i + 1)) <= distancia
-					|| pontos.get(i + 1).getDistancia() <= distancia) {
+			if (pontos.get(i).getDistancia() <= distancia) {
 				recalculaDistancias();
-				pontos.remove(i + 1);
+				pontos.remove(i);
+				reduzDistancias(distancia);
 			}
 		}
 	}
@@ -62,11 +62,11 @@ public class Segmento {
 	// Recalcula as distancias
 	private void recalculaDistancias() {
 		for (int i = 1; i < pontos.size() - 1; i++) {
-			Operacoes.calculaDistancia(pontos.get(i - 1), pontos.get(i), pontos.get(i + 1));
+			pontos.get(i).setDistancia(Operacoes.calculaDistancia(pontos.get(i - 1), pontos.get(i), pontos.get(i + 1)));
 		}
 	}
 
-	public static List<Ponto> getPontos() {
+	public List<Ponto> getPontos() {
 		return pontos;
 	}
 
