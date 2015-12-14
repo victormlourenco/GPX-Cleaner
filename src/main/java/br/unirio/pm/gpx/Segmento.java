@@ -49,7 +49,7 @@ public class Segmento {
 
 	// Reduz pontos com distancias menores a uma distancia passada como
 	// par�metro
-	private void reduzDistancias(double distancia) {
+	public void reduzDistancias(double distancia) {
 		for (int i = 1; i < pontos.size() - 1; i++) {
 			if (Operacoes.calculaHaversine(pontos.get(i), pontos.get(i + 1)) <= distancia
 					|| pontos.get(i + 1).getDistancia() <= distancia) {
@@ -65,7 +65,7 @@ public class Segmento {
 			Operacoes.calculaDistancia(pontos.get(i - 1), pontos.get(i), pontos.get(i + 1));
 		}
 	}
-	
+
 	public static List<Ponto> getPontos() {
 		return pontos;
 	}
