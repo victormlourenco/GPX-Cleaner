@@ -10,7 +10,7 @@ public class Trilha {
 		}
 
 		Segmento trilha = new Segmento(args[1]);
-		trilha.removerPontos(args[0], args[2]);
+		trilha.removePontos(args[0], args[2]);
 	}
 
 }

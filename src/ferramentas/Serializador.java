@@ -17,7 +17,7 @@ import gpx.Ponto;
 public class Serializador {
 
 	// Recupera pontos de um arquivo .gpx
-	public static List<Ponto> deserializarPontos(String filename) {
+	public static List<Ponto> deserializaPontos(String filename) {
 		List<Ponto> Points = new ArrayList<Ponto>();
 		List<TrackPoint> frames = (GpxFileDataAccess.getPoints(new File(filename)));
 		for (int i = 0; i < frames.size(); i++) {
@@ -27,7 +27,7 @@ public class Serializador {
 	}
 
 	// Escreve uma lista de Pontos num arquivo .gpx
-	public static void escreverPontos(String filename, List<Ponto> points) {
+	public static void escrevePontos(String filename, List<Ponto> points) {
 		List<TrackPoint> frames = new ArrayList<TrackPoint>();
 		for (int i = 0; i < points.size(); i++) {
 			frames.add((TrackPoint) points.get(i).getFrame());
