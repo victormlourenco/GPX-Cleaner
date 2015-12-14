@@ -25,8 +25,16 @@ public class Segmento {
 		Serializador.escrevePontos(saida, pontos);
 	}
 
+	public static List<Ponto> getPontos() {
+		return pontos;
+	}
+
+	public static void setPontos(List<Ponto> pontos) {
+		Segmento.pontos = pontos;
+	}
+
 	// M�todo respons�vel por remover Pontos atrav�s de um percentual.
-	private void reduzPercentual(int value) {
+	public void reduzPercentual(int value) {
 		value = (value * pontos.size()) / 100;
 		for (int i = 0; i < value; i++) {
 			recalculaDistancias();
