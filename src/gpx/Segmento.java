@@ -1,7 +1,6 @@
 package gpx;
 
 import java.util.List;
-
 import ferramentas.Haversine;
 import ferramentas.Serializador;
 
@@ -15,7 +14,7 @@ public class Segmento {
 	}
 
 	// Remove pontos de uma array de Objetos do tipo Ponto e salva com um nome
-	// passado como parâmetro.
+	// passado como parï¿½metro.
 	public void removerPontos(String quantidade, String saida) {
 		if (quantidade.endsWith("%")) {
 			reduzirPercentual(Integer.parseInt(quantidade.replace("%", "")));
@@ -25,7 +24,7 @@ public class Segmento {
 		Serializador.escreverPontos(saida, pontos);
 	}
 
-	// Método responsável por remover Pontos através de um percentual.
+	// Mï¿½todo responsï¿½vel por remover Pontos atravï¿½s de um percentual.
 	private void reduzirPercentual(int value) {
 		value = (value * pontos.size()) / 100;
 		for (int i = 0; i < value; i++) {
@@ -34,7 +33,7 @@ public class Segmento {
 		}
 	}
 
-	// Retorna a posição do Ponto que possui a menor distância
+	// Retorna a posiï¿½ï¿½o do Ponto que possui a menor distï¿½ncia
 	private int calcularMenorDistancia() {
 		double menor = pontos.get(0).getDistancia();
 		int posicaomenor = 0;
@@ -48,13 +47,14 @@ public class Segmento {
 	}
 
 	// Reduz pontos com distancias menores a uma distancia passada como
-	// parâmetro
+	// parï¿½metro
 	private void reduzirDistancias(double distancia) {
 		for (int i = 1; i < pontos.size() - 1; i++) {
-			if (pontos.get(i).getDistancia() <= distancia) {
+			if (Haversine.haversine(pontos.get(i).getLatitude(), pontos.get(i).getLongitude(),
+					pontos.get(i + 1).getLatitude(), pontos.get(i + 1).getLongitude()) <= distancia
+					|| pontos.get(i + 1).getDistancia() <= distancia) {
 				recalcularDistancias();
-				// System.out.println(pontos.get(i).getDistancia());
-				pontos.remove(i);
+				pontos.remove(i + 1);
 			}
 		}
 	}
@@ -66,7 +66,7 @@ public class Segmento {
 		}
 	}
 
-	// Calcula a distância d entre pontos
+	// Calcula a distï¿½ncia d entre pontos
 	private void calcularDistancia(Ponto pontoA, Ponto pontoB, Ponto pontoC) {
 		double x1 = pontoA.getLongitude();
 		double y1 = pontoA.getLatitude();

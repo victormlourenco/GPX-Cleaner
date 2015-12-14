@@ -5,7 +5,7 @@ public class Trilha {
 	public static void main(String[] args) {
 
 		if (args.length != 3) {
-			System.err.println("Parâmetros inválidos");
+			System.err.println("Parï¿½metros invï¿½lidos");
 			System.exit(0);
 		}
 

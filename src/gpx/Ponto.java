@@ -8,7 +8,7 @@ public class Ponto {
 	private Object frame;
 	private double distancia;
 
-	// Constrói um objeto do tipo Ponto através de um objeto do tipo frame
+	// Constrï¿½i um objeto do tipo Ponto atravï¿½s de um objeto do tipo frame
 	public Ponto(Object frame) {
 		super();
 		this.latitude = Serializador.getLat(frame);
@@ -25,7 +25,7 @@ public class Ponto {
 		this.distancia = Double.MAX_VALUE;
 	}
 
-	// Constrói um a partir de um y,x
+	// Constrï¿½i um objeto do tipo ponto a partir de um y,x
 	public Ponto(double latitude, double longitude) {
 		super();
 		this.latitude = latitude;

@@ -18,8 +18,8 @@ public class Serializador {
 
 	// Recupera pontos de um arquivo .gpx
 	public static List<Ponto> deserializarPontos(String filename) {
-		List<TrackPoint> frames = (GpxFileDataAccess.getPoints(new File(filename)));
 		List<Ponto> Points = new ArrayList<Ponto>();
+		List<TrackPoint> frames = (GpxFileDataAccess.getPoints(new File(filename)));
 		for (int i = 0; i < frames.size(); i++) {
 			Points.add(new Ponto(frames.get(i)));
 		}
