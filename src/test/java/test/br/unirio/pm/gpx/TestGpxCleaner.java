@@ -70,7 +70,7 @@ public class TestGpxCleaner extends TestCase {
 					|| pontos.get(i + 1).getDistancia() <= distancia);
 		}
 	}
-	
+
 	@Test
 	public void testDistancia1m() {
 		Segmento segmento = new Segmento("foxboro.gpx");
@@ -82,4 +82,5 @@ public class TestGpxCleaner extends TestCase {
 					|| pontos.get(i + 1).getDistancia() <= distancia);
 		}
 	}
+
 }
