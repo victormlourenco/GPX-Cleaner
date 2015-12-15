@@ -64,7 +64,7 @@ public class Segmento {
 	private void recalculaDistancias() {
 		for (int i = 1; i < pontos.size() - 1; i++) {
 			pontos.get(i).setDistancia(Operacoes.calculaDistancia(pontos.get(i - 1), pontos.get(i), pontos.get(i + 1)));
-			pontos.get(i).setDistanciaProx(Operacoes.calculaHaversine(pontos.get(i), pontos.get(i + 1)));
+			pontos.get(i).setDistanciaprox(Operacoes.calculaHaversine(pontos.get(i), pontos.get(i + 1)));
 		}
 	}
 

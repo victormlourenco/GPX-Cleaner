@@ -61,7 +61,7 @@ public class Ponto {
 		return distanciaprox;
 	}
 
-	public void setDistanciaProx(double distanciaprox) {
+	public void setDistanciaprox(double distanciaprox) {
 		this.distanciaprox = distanciaprox;
 	}
 

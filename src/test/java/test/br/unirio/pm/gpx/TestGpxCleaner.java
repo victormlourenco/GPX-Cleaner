@@ -12,35 +12,35 @@ public class TestGpxCleaner extends TestCase {
 
 	@Test
 	public void testPercentual50p() {
-		Segmento segmento50p = new Segmento("century.gpx");
+		Segmento segmento50p = new Segmento("Century-2007-02-18.gpx");
 		segmento50p.reduzPercentual(50);
 		assertEquals(segmento50p.getPontos().size(), 1121);
 	}
 
 	@Test
 	public void testPercentual60p() {
-		Segmento segmento60p = new Segmento("century.gpx");
+		Segmento segmento60p = new Segmento("Century-2007-02-18.gpx");
 		segmento60p.reduzPercentual(60);
 		assertEquals(897, segmento60p.getPontos().size());
 	}
 
 	@Test
 	public void testPercentual90p() {
-		Segmento segmento90p = new Segmento("century.gpx");
+		Segmento segmento90p = new Segmento("Century-2007-02-18.gpx");
 		segmento90p.reduzPercentual(90);
 		assertEquals(225, segmento90p.getPontos().size());
 	}
 
 	@Test
 	public void testPercentual95p() {
-		Segmento segmento95p = new Segmento("century.gpx");
+		Segmento segmento95p = new Segmento("Century-2007-02-18.gpx");
 		segmento95p.reduzPercentual(95);
 		assertEquals(113, segmento95p.getPontos().size());
 	}
 
 	@Test
 	public void testPercentual100p() {
-		Segmento segmento100p = new Segmento("century.gpx");
+		Segmento segmento100p = new Segmento("Century-2007-02-18.gpx");
 		segmento100p.reduzPercentual(100);
 		assertEquals(0, segmento100p.getPontos().size());
 	}
