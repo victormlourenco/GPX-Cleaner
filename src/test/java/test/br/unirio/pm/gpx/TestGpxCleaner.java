@@ -52,7 +52,7 @@ public class TestGpxCleaner extends TestCase {
 		segmento.reduzDistancias(distancia);
 		List<Ponto> pontos = segmento.getPontos();
 		for (int i = 0; i < pontos.size() - 1; i++) {
-			assertFalse(pontos.get(i).getDistanciaprox() + pontos.get(i + 1).getDistanciaprox() <= distancia);
+			assertFalse(pontos.get(i).getDistanciaprox() + pontos.get(i + 1).getDistanciaprox() <= 2 * distancia);
 		}
 	}
 
@@ -63,7 +63,7 @@ public class TestGpxCleaner extends TestCase {
 		segmento.reduzDistancias(distancia);
 		List<Ponto> pontos = segmento.getPontos();
 		for (int i = 0; i < pontos.size() - 1; i++) {
-			assertFalse(pontos.get(i).getDistanciaprox() + pontos.get(i + 1).getDistanciaprox() <= distancia);
+			assertFalse(pontos.get(i).getDistanciaprox() + pontos.get(i + 1).getDistanciaprox() <= 2 * distancia);
 		}
 	}
 
@@ -74,7 +74,7 @@ public class TestGpxCleaner extends TestCase {
 		segmento.reduzDistancias(distancia);
 		List<Ponto> pontos = segmento.getPontos();
 		for (int i = 0; i < pontos.size() - 1; i++) {
-			assertFalse(pontos.get(i).getDistanciaprox() + pontos.get(i + 1).getDistanciaprox() <= distancia);
+			assertFalse(pontos.get(i).getDistanciaprox() + pontos.get(i + 1).getDistanciaprox() <= 2 * distancia);
 		}
 	}
 

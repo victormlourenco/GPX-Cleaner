@@ -52,8 +52,8 @@ public class Segmento {
 	// parâmetro
 	public void reduzDistancias(double distancia) {
 		for (int i = 0; i < pontos.size() - 1; i++) {
-			for (int j = i + 1; j < pontos.size() - 1; j++) {
-				if (pontos.get(i).getDistanciaprox() + pontos.get(j).getDistanciaprox() <= distancia) {
+			for (int j = i + 1; j < pontos.size() - 1; ++j) {
+				if (Math.abs(pontos.get(i).getDistanciaprox() + pontos.get(j).getDistanciaprox()) <= 2 * distancia) {
 					pontos.remove(j);
 				}
 			}
