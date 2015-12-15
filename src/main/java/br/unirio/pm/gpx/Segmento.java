@@ -30,8 +30,8 @@ public class Segmento {
 	public void reduzPercentual(int value) {
 		value = (value * pontos.size()) / 100;
 		for (int i = 0; i < value; i++) {
-			pontos.remove(calculaMenorDistancia());
 			recalculaDistancias();
+			pontos.remove(calculaMenorDistancia());
 		}
 	}
 
@@ -39,7 +39,7 @@ public class Segmento {
 	private int calculaMenorDistancia() {
 		double menor = pontos.get(0).getDistancia();
 		int posicaomenor = 0;
-		for (int i = 1; i < pontos.size() - 1; i++) {
+		for (int i = 0; i < pontos.size(); i++) {
 			if (pontos.get(i).getDistancia() < menor) {
 				posicaomenor = i;
 				menor = pontos.get(i).getDistancia();
@@ -64,7 +64,7 @@ public class Segmento {
 	private void recalculaDistancias() {
 		for (int i = 1; i < pontos.size() - 1; i++) {
 			pontos.get(i).setDistancia(Operacoes.calculaDistancia(pontos.get(i - 1), pontos.get(i), pontos.get(i + 1)));
-			pontos.get(i).setDistanciaprox(Operacoes.calculaHaversine(pontos.get(i), pontos.get(i + 1)));
+			pontos.get(i).setDistanciaprox(Operacoes.calculaHaversine(pontos.get(i - 1), pontos.get(i)));
 		}
 	}
 

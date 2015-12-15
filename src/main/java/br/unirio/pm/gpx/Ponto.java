@@ -9,12 +9,14 @@ public class Ponto {
 	private double distancia;
 	private double distanciaprox;
 
-	// Constrói um objeto do tipo Ponto atravï¿½s de um objeto do tipo frame
+	// Constrï¿½i um objeto do tipo Ponto atravï¿½s de um objeto do tipo frame
 	public Ponto(Object frame) {
 		super();
 		this.latitude = Serializador.getLat(frame);
 		this.longitude = Serializador.getLong(frame);
 		this.frame = frame;
+		this.distancia = Double.MAX_VALUE;
+		this.distanciaprox = Double.MAX_VALUE;
 	}
 
 	// Construtor default
@@ -27,8 +29,8 @@ public class Ponto {
 		this.distanciaprox = Double.MAX_VALUE;
 	}
 
-	// Constrói um objeto do tipo ponto a partir de um y,x
-	public Ponto(Double latitude, Double longitude) {
+	// Constrï¿½i um objeto do tipo ponto a partir de um y,x
+	public Ponto(double latitude, double longitude) {
 		super();
 		this.latitude = latitude;
 		this.longitude = longitude;
