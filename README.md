@@ -1,4 +1,5 @@
 # GPX-Cleaner 
+##### Aplicação que permite a remoção de pontos geográficos de um arquivo GPX (GPS Exchange Format).
 
 ### Utilização
 ```
@@ -9,3 +10,5 @@ java -jar gpx.jar 60% Century-2007-02-18.gpx century-reduzido-60p.gpx
 java -jar gpx.jar 90% Century-2007-02-18.gpx century-reduzido-90p.gpx
 java -jar gpx.jar 95% Century-2007-02-18.gpx century-reduzido-95p.gpx
 ```
+
+###### Desenvolvido por Diogo Ferreira e Victor Lourenço.
