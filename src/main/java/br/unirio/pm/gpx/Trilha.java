@@ -4,13 +4,13 @@ public class Trilha {
 
 	public static void main(String[] args) {
 
-/*		if (args.length != 3) {
-			System.err.println("Parï¿½metros invï¿½lidos");
+		if (args.length != 3) {
+			System.err.println("Parâmetros inválidos");
 			System.exit(0);
-		}*/
+		}
 
-		Segmento trilha = new Segmento("foxboro.gpx");
-		trilha.removePontos("0.1", "foxboro-.gpx");
+		Segmento trilha = new Segmento(args[1]);
+		trilha.removePontos(args[0], args[2]);
 	}
 
 }

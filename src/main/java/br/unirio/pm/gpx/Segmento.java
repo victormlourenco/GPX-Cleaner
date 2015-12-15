@@ -12,10 +12,11 @@ public class Segmento {
 	// Recebe um array de objetos do tipo Ponto do Serializador
 	public Segmento(String ArquivoDeEntrada) {
 		pontos = Serializador.deserializaPontos(ArquivoDeEntrada);
+		recalculaDistancias();
 	}
 
 	// Remove pontos de uma array de Objetos do tipo Ponto e salva com um nome
-	// passado como par�metro.
+	// passado como parâmetro.
 	public void removePontos(String quantidade, String saida) {
 		if (quantidade.endsWith("%")) {
 			reduzPercentual(Integer.parseInt(quantidade.replace("%", "")));
@@ -25,16 +26,16 @@ public class Segmento {
 		Serializador.escrevePontos(saida, pontos);
 	}
 
-	// M�todo respons�vel por remover Pontos atrav�s de um percentual.
+	// Método responsável por remover Pontos atravï¿½s de um percentual.
 	public void reduzPercentual(int value) {
 		value = (value * pontos.size()) / 100;
 		for (int i = 0; i < value; i++) {
-			recalculaDistancias();
 			pontos.remove(calculaMenorDistancia());
+			recalculaDistancias();
 		}
 	}
 
-	// Retorna a posi��o do Ponto que possui a menor dist�ncia
+	// Retorna a Posição do Ponto que possui a menor distância
 	private int calculaMenorDistancia() {
 		double menor = pontos.get(0).getDistancia();
 		int posicaomenor = 0;
@@ -48,21 +49,22 @@ public class Segmento {
 	}
 
 	// Reduz pontos com distancias menores a uma distancia passada como
-	// par�metro
+	// parâmetro
 	public void reduzDistancias(double distancia) {
-		for (int i = 1; i < pontos.size() - 1; i++) {
-			if (pontos.get(i).getDistancia() <= distancia) {
-				recalculaDistancias();
-				pontos.remove(i);
-				reduzDistancias(distancia);
+		for (int i = 0; i < pontos.size() - 1; i++) {
+			for (int j = i + 1; j < pontos.size() - 1; j++) {
+				if (pontos.get(i).getDistanciaprox() + pontos.get(j).getDistanciaprox() <= distancia) {
+					pontos.remove(j);
+				}
 			}
 		}
 	}
 
-	// Recalcula as distancias
+	// Recalcula as distâncias
 	private void recalculaDistancias() {
 		for (int i = 1; i < pontos.size() - 1; i++) {
 			pontos.get(i).setDistancia(Operacoes.calculaDistancia(pontos.get(i - 1), pontos.get(i), pontos.get(i + 1)));
+			pontos.get(i).setDistanciaProx(Operacoes.calculaHaversine(pontos.get(i), pontos.get(i + 1)));
 		}
 	}
 

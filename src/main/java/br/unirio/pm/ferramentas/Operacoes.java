@@ -3,17 +3,18 @@ package br.unirio.pm.ferramentas;
 import br.unirio.pm.gpx.Ponto;
 
 public class Operacoes {
-	public static final double R = 6372.8; // In kilometers
+	public static final double R = 6372.8;
 
 	public static double calculaHaversine(Ponto ponto1, Ponto ponto2) {
 		double dLat = Math.toRadians(ponto2.getLatitude() - ponto1.getLatitude());
 		double dLon = Math.toRadians(ponto2.getLongitude() - ponto1.getLongitude());
-		double a = Math.pow(Math.sin(dLat / 2), 2) + Math.pow(Math.sin(dLon / 2), 2) * Math.cos(Math.toRadians(ponto1.getLatitude())) * Math.cos(ponto1.getLatitude());
+		double a = Math.pow(Math.sin(dLat / 2), 2) + Math.pow(Math.sin(dLon / 2), 2)
+				* Math.cos(Math.toRadians(ponto1.getLatitude())) * Math.cos(ponto1.getLatitude());
 		double c = 2 * Math.asin(Math.sqrt(a));
 		return R * c;
 	}
-	
-	// Calcula a distï¿½ncia d entre pontos
+
+	// Calcula a distância d entre pontos
 	public static double calculaDistancia(Ponto pontoA, Ponto pontoB, Ponto pontoC) {
 		double x1 = pontoA.getLongitude();
 		double y1 = pontoA.getLatitude();

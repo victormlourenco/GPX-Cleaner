@@ -1,14 +1,12 @@
 package test.br.unirio.pm.gpx;
 
-import junit.framework.TestCase;
-
 import java.util.List;
 
 import org.junit.Test;
 
-import br.unirio.pm.ferramentas.Operacoes;
 import br.unirio.pm.gpx.Ponto;
 import br.unirio.pm.gpx.Segmento;
+import junit.framework.TestCase;
 
 public class TestGpxCleaner extends TestCase {
 
@@ -53,8 +51,8 @@ public class TestGpxCleaner extends TestCase {
 		double distancia = 0.1;
 		segmento.reduzDistancias(distancia);
 		List<Ponto> pontos = segmento.getPontos();
-		for (int i = 1; i < pontos.size() - 1; i++) {
-			assertTrue(pontos.get(i).getDistancia() > distancia);
+		for (int i = 0; i < pontos.size() - 1; i++) {
+			assertFalse(pontos.get(i).getDistanciaprox() + pontos.get(i + 1).getDistanciaprox() <= distancia);
 		}
 	}
 
@@ -64,8 +62,8 @@ public class TestGpxCleaner extends TestCase {
 		double distancia = 0.01;
 		segmento.reduzDistancias(distancia);
 		List<Ponto> pontos = segmento.getPontos();
-		for (int i = 1; i < pontos.size() - 1; i++) {
-			assertTrue(pontos.get(i).getDistancia() > distancia);
+		for (int i = 0; i < pontos.size() - 1; i++) {
+			assertFalse(pontos.get(i).getDistanciaprox() + pontos.get(i + 1).getDistanciaprox() <= distancia);
 		}
 	}
 
@@ -75,8 +73,8 @@ public class TestGpxCleaner extends TestCase {
 		double distancia = 0.001;
 		segmento.reduzDistancias(distancia);
 		List<Ponto> pontos = segmento.getPontos();
-		for (int i = 1; i < pontos.size() - 1; i++) {
-			assertTrue(pontos.get(i).getDistancia() > distancia);
+		for (int i = 0; i < pontos.size() - 1; i++) {
+			assertFalse(pontos.get(i).getDistanciaprox() + pontos.get(i + 1).getDistanciaprox() <= distancia);
 		}
 	}
 
